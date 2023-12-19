@@ -229,7 +229,7 @@ class ProdRecom:
       print(f'exceeding token limit by {len(final_text_list)-14000}')
       # final_text_list = final_text_list[0:14500]
       no_of_links = no_of_links-1
-      final_text = self.get_top_reviews(results_dict,no_of_links)
+      final_text = get_top_reviews(results_dict,no_of_links)
       print('executed by reducing links')
 
     else:
@@ -280,7 +280,7 @@ class ProdRecom:
 
 if __name__ == "__main__":
   # Enthusiastic welcome message
-  st.title("Welcome to the OneSolution App!")
+  st.title("Welcome to One Solution App")
   st.write("Hello there! 🌟 We're excited to hear about your requirements. You can share your thoughts with us")
 
   # Radio button to select input type
