@@ -230,7 +230,7 @@ class ProdRecom:
       print(f'exceeding token limit by {len(final_text_list)-14000}')
       # final_text_list = final_text_list[0:14500]
       no_of_links = no_of_links-1
-      final_text = get_top_reviews(results_dict,no_of_links)
+      final_text = self.get_top_reviews(results_dict,no_of_links)
       print('executed by reducing links')
 
     else:
