@@ -18,8 +18,8 @@ os.environ["AZURE_OPENAI_API_KEY"] = 'f7e330db85eb4ca5855620ca2656871e'
 os.environ["AZURE_OPENAI_ENDPOINT"] = 'https://openaitrials.openai.azure.com/'
 
 
-os.environ["AZURE_OPENAI_API_KEY"] = st.secrets["AZURE_OPENAI_API_KEY"]
-os.environ["AZURE_OPENAI_ENDPOINT"] = st.secrets["AZURE_OPENAI_ENDPOINT"]
+#os.environ["AZURE_OPENAI_API_KEY"] = st.secrets["AZURE_OPENAI_API_KEY"]
+#os.environ["AZURE_OPENAI_ENDPOINT"] = st.secrets["AZURE_OPENAI_ENDPOINT"]
 
 class ProdRecom:
   def __init__(self):
