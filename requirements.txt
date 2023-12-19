@@ -1,4 +1,6 @@
 openai==0.28.0
-nltk
+tiktoken
+chromadb
+langchain
 streamlit
 bs4
