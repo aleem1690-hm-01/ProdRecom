@@ -34,7 +34,9 @@ class ProdRecom:
 
   def req_summary(self,search_request):
 
-    summary_model = openai.ChatCompletion.create(model='gpt-3.5-turbo',
+    summary_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
+                    openai_api_version="2023-07-01-preview",
+                    openai_api_type="azure",
                                             messages = [
                                                 {'role':'system','content':'You are a worlds best recommendation system'},
                                                 {'role':'user','content':search_request}
@@ -180,7 +182,9 @@ class ProdRecom:
   def get_top_products(self,results_list):
 
 
-    prompt_reviews_model = openai.ChatCompletion.create(model='gpt-3.5-turbo-16k',
+    prompt_reviews_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
+                    openai_api_version="2023-07-01-preview",
+                    openai_api_type="azure",
                                             messages = [
                                                 {'role':'system','content':'You are a worlds best recommendation system'},
                                                 {'role':'user','content':results_list}
@@ -282,7 +286,9 @@ class ProdRecom:
                   detailed_review: {detailed_review}
 
     '''
-    final_prod_model = openai.ChatCompletion.create(model='gpt-3.5-turbo-16k',
+    final_prod_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
+                    openai_api_version="2023-07-01-preview",
+                    openai_api_type="azure",
                                   messages = [
                                       {"role":"system","content":prod_expert},
                                       {"role":"user","content":final_prod_prompt}
