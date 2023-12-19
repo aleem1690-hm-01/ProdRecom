@@ -13,6 +13,7 @@ import streamlit as st
 class ProdRecom:
   def __init__(self):
     openai.api_key = st.secrets["API_KEY"]
+    print(openai.api_key)
     self._no_of_links = 2
 
   def req_summary(self,search_request):
