@@ -7,36 +7,17 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import streamlit as st
-import os
-
-#Updating the server key for google search
-#os.environ["SERPER_API_KEY"] = "b428c3270564754f69383922cd85763cb7b79533"
-#os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
-
-#Updating the Azure open Api Key & End Point for model
-os.environ["AZURE_OPENAI_API_KEY"] = 'f7e330db85eb4ca5855620ca2656871e'
-os.environ["AZURE_OPENAI_ENDPOINT"] = 'https://openaitrials.openai.azure.com/'
 
 
-#os.environ["AZURE_OPENAI_API_KEY"] = st.secrets["AZURE_OPENAI_API_KEY"]
-#os.environ["AZURE_OPENAI_ENDPOINT"] = st.secrets["AZURE_OPENAI_ENDPOINT"]
 
 class ProdRecom:
   def __init__(self):
-    openai.api_type = "azure"
-
-    openai.api_version = "2023-07-01-preview"
-    
-    openai.api_base = "https://openaitrials.openai.azure.com/"
-    
-    openai.api_key = "f7e330db85eb4ca5855620ca2656871e"
+    openai.api_key = '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'
     self._no_of_links = 2
 
   def req_summary(self,search_request):
 
-    summary_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
-                    openai_api_version="2023-07-01-preview",
-                    openai_api_type="azure",
+    summary_model = openai.ChatCompletion.create(model='gpt-3.5-turbo',
                                             messages = [
                                                 {'role':'system','content':'You are a worlds best recommendation system'},
                                                 {'role':'user','content':search_request}
@@ -182,9 +163,7 @@ class ProdRecom:
   def get_top_products(self,results_list):
 
 
-    prompt_reviews_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
-                    openai_api_version="2023-07-01-preview",
-                    openai_api_type="azure",
+    prompt_reviews_model = openai.ChatCompletion.create(model='gpt-3.5-turbo-16k',
                                             messages = [
                                                 {'role':'system','content':'You are a worlds best recommendation system'},
                                                 {'role':'user','content':results_list}
@@ -286,9 +265,7 @@ class ProdRecom:
                   detailed_review: {detailed_review}
 
     '''
-    final_prod_model = openai.ChatCompletion.create(azure_deployment='gpt35turbo16kdep2',
-                    openai_api_version="2023-07-01-preview",
-                    openai_api_type="azure",
+    final_prod_model = openai.ChatCompletion.create(model='gpt-3.5-turbo-16k',
                                   messages = [
                                       {"role":"system","content":prod_expert},
                                       {"role":"user","content":final_prod_prompt}
@@ -303,8 +280,8 @@ class ProdRecom:
 
 if __name__ == "__main__":
   # Enthusiastic welcome message
-  st.title("Welcome to OneSolution App!")
-  st.write("Hello there! 🌟 We're excited to hear about your requirements. You can share your thoughts with us through text!")
+  st.title("Welcome to the OneSolution App!")
+  st.write("Hello there! 🌟 We're excited to hear about your requirements. You can share your thoughts with us")
 
   # Radio button to select input type
   input_type = st.radio("Select input type:", ["Text", "Voice"])
