@@ -12,7 +12,13 @@ import streamlit as st
 
 class ProdRecom:
   def __init__(self):
-    openai.api_key = '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'
+    openai.api_type = "azure"
+
+    openai.api_version = "2023-07-01-preview"
+    
+    openai.api_base = "https://openaitrials.openai.azure.com/"
+    
+    openai.api_key = "f7e330db85eb4ca5855620ca2656871e"
     self._no_of_links = 2
 
   def req_summary(self,search_request):
@@ -280,8 +286,8 @@ class ProdRecom:
 
 if __name__ == "__main__":
   # Enthusiastic welcome message
-  st.title("Welcome to the Product Needs Portal!")
-  st.write("Hello there! 🌟 We're excited to hear about your product needs. You can share your thoughts with us through text or voice!")
+  st.title("Welcome to OneSolution App!")
+  st.write("Hello there! 🌟 We're excited to hear about your requirements. You can share your thoughts with us through text!")
 
   # Radio button to select input type
   input_type = st.radio("Select input type:", ["Text", "Voice"])
