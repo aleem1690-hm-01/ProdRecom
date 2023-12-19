@@ -12,7 +12,7 @@ import streamlit as st
 
 class ProdRecom:
   def __init__(self):
-    openai.api_key = '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'
+    openai.api_key = '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'
     self._no_of_links = 2
 
   def req_summary(self,search_request):
@@ -229,7 +229,7 @@ class ProdRecom:
       print(f'exceeding token limit by {len(final_text_list)-14000}')
       # final_text_list = final_text_list[0:14500]
       no_of_links = no_of_links-1
-      final_text = get_top_reviews(results_dict,no_of_links)
+      final_text = self.get_top_reviews(results_dict,no_of_links)
       print('executed by reducing links')
 
     else:
@@ -280,8 +280,8 @@ class ProdRecom:
 
 if __name__ == "__main__":
   # Enthusiastic welcome message
-  st.title("Welcome to One Solution App")
-  st.write("Hello there! 🌟 We're excited to hear about your requirements. You can share your thoughts with us")
+  st.title("Welcome to the Product Needs Portal!")
+  st.write("Hello there! 🌟 We're excited to hear about your product needs. You can share your thoughts with us through text or voice!")
 
   # Radio button to select input type
   input_type = st.radio("Select input type:", ["Text", "Voice"])
